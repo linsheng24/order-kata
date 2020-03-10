@@ -60,5 +60,17 @@ class OrderTest extends TestCase
     $this->assertEquals($expected, $price);
   }
   
+  public function test_give2of0_return150()
+  {
+    $this->order->add(0);
+    $this->order->add(0);
+    $price = $this->order->getPrice();
+
+    $expected = 150;
+
+    $this->assertEquals($expected, $price);
+  }
+  
+  
 
 }
