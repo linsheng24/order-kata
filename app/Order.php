@@ -12,6 +12,12 @@ class Order
   private $count = [0, 0, 0];
   private $total = 0;
   private $reduce = 0;
+  private $is_member = false;
+
+  public function setIsMember()
+  {
+    $this->is_member = true;
+  }
 
   public function discount()
   {
@@ -38,7 +44,11 @@ class Order
   public function getPrice()
   {
   
-    return $this->total - $this->reduce;
+    if ($this->is_member == true) {
+      return floor(0.9 * ($this->total - $this->reduce));
+    } else {
+      return $this->total - $this->reduce;
+    }
 
   }
   
