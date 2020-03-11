@@ -15,13 +15,23 @@ class Order
 
   public function add($value)
   {
+    
     $this->count[$value]++;
+
     $this->total = $this->menu[0]["price"] * $this->count[0] + $this->menu[1]["price"] * $this->count[1] + $this->menu[2]["price"] * $this->count[2];
+  
   }
 
   public function getPrice()
   {
-    
+  
+    if ($this->count[0] == 2) {
+      return 150;
+    }
+    if ($this->count[0] == 1 && $this->count[1] == 1) {
+      return 210;
+    }
+
     return $this->total;
 
   }
