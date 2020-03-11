@@ -5,7 +5,7 @@ class Order
 {
 
   private $menu = [
-    ["name" => "豬肉漢堡", "price" => 100], 
+    ["name" => "豬肉漢堡", "price" => 120], 
     ["name" => "牛肉漢堡", "price" => 160], 
     ["name" => "義大利麵", "price" => 130]
   ];
@@ -19,9 +19,9 @@ class Order
     $reduce_number = floor($burger_number / 2);
 
     if ($reduce_number < $this->count[0]) {
-      $this->reduce = $reduce_number * 50;
+      $this->reduce = $reduce_number * 60;
     } else {
-      $this->reduce = $this->count[0] * 50 + ($reduce_number - $this->count[0]) * 80;
+      $this->reduce = $this->count[0] * 60 + ($reduce_number - $this->count[0]) * 80;
     }
 
   }

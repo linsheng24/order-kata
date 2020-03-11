@@ -22,12 +22,12 @@ class OrderTest extends TestCase
   /**
    * @test
    */
-  public function getPrice_Add0_Return100()
+  public function getPrice_Add0_Return120()
   {
     //Arrange
     $this->order->add(0);
     
-    $expected = 100;
+    $expected = 120;
     //Act
     $actual = $this->order->getPrice();
     
@@ -54,13 +54,13 @@ class OrderTest extends TestCase
   /**
    * @test
    */
-  public function getPrice_Add2of0_Return150()
+  public function getPrice_Add2of0_Return180()
   {
     //Arrange
     $this->order->add(0);
     $this->order->add(0);
     $this->order->discount();
-    $expected = 150;
+    $expected = 180;
     //Act
     $actual = $this->order->getPrice();
     
@@ -71,13 +71,13 @@ class OrderTest extends TestCase
   /**
    * @test
    */
-  public function getPrice_Add1of0and1of1_Return210()
+  public function getPrice_Add1of0and1of1_Return220()
   {
     //Arrange
     $this->order->add(0);
     $this->order->add(1);
     $this->order->discount();
-    $expected = 210;
+    $expected = 220;
     //Act
     $actual = $this->order->getPrice();
     
