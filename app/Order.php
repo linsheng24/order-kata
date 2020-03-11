@@ -11,7 +11,20 @@ class Order
   ];
   private $count = [0, 0, 0];
   private $total = 0;
+  private $reduce = 0;
 
+  public function discount()
+  {
+    $burger_number = $this->count[0] + $this->count[1];
+    $reduce_number = floor($burger_number / 2);
+
+    if ($reduce_number < $this->count[0]) {
+      $this->reduce = $reduce_number * 50;
+    } else {
+      $this->reduce = $this->count[0] * 50 + ($reduce_number - $this->count[0]) * 80;
+    }
+
+  }
 
   public function add($value)
   {
@@ -25,14 +38,7 @@ class Order
   public function getPrice()
   {
   
-    if ($this->count[0] == 2) {
-      return 150;
-    }
-    if ($this->count[0] == 1 && $this->count[1] == 1) {
-      return 210;
-    }
-
-    return $this->total;
+    return $this->total - $this->reduce;
 
   }
   

@@ -59,7 +59,7 @@ class OrderTest extends TestCase
     //Arrange
     $this->order->add(0);
     $this->order->add(0);
-    
+    $this->order->discount();
     $expected = 150;
     //Act
     $actual = $this->order->getPrice();
@@ -76,7 +76,7 @@ class OrderTest extends TestCase
     //Arrange
     $this->order->add(0);
     $this->order->add(1);
-    
+    $this->order->discount();
     $expected = 210;
     //Act
     $actual = $this->order->getPrice();
