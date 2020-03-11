@@ -102,5 +102,31 @@ class OrderTest extends TestCase
     //Assert
     $this->assertEquals($expected, $actual);
   }
+
+  /**
+   * @test
+   */
+  public function getPrice_Add2of0and3of1and4of2AndisMember_Return1008()
+  {
+    //Arrange
+    for($i=0;$i<2;$i++) {
+      $this->order->add(0);
+    }
+    for($i=0;$i<3;$i++) {
+      $this->order->add(1);
+    }
+    for($i=0;$i<4;$i++) {
+      $this->order->add(2);
+    }
+
+    $this->order->discount();
+    $this->order->setIsMember();
+    $expected = 1008;
+    //Act
+    $actual = $this->order->getPrice();
+    
+    //Assert
+    $this->assertEquals($expected, $actual);
+  }
   
 }
