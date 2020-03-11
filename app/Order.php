@@ -44,11 +44,7 @@ class Order
   public function getPrice()
   {
   
-    if ($this->is_member == true) {
-      return floor(0.9 * ($this->total - $this->reduce));
-    } else {
-      return $this->total - $this->reduce;
-    }
+    return $this->is_member ? floor(0.9 * ($this->total - $this->reduce)) : ($this->total - $this->reduce);
 
   }
   
