@@ -19,58 +19,21 @@ class OrderTest extends TestCase
     $this->order = null;
   }
 
-  public function test_give0_return100()
+  /**
+   * @test
+   */
+  public function getPrice_Add0_Return100()
   {
+    //Arrange
     $this->order->add(0);
-    $price = $this->order->getPrice();
-
+    
     $expected = 100;
-
-    $this->assertEquals($expected, $price);
-  }
-
-  public function test_give1_return160()
-  {
-    $this->order->add(1);
-    $price = $this->order->getPrice();
-
-    $expected = 160;
-
-    $this->assertEquals($expected, $price);
-  }
-
-  public function test_give2_return130()
-  {
-    $this->order->add(2);
-    $price = $this->order->getPrice();
-
-    $expected = 130;
-
-    $this->assertEquals($expected, $price);
-  }
-
-  public function test_give1and2_return290()
-  {
-    $this->order->add(1);
-    $this->order->add(2);
-    $price = $this->order->getPrice();
-
-    $expected = 290;
-
-    $this->assertEquals($expected, $price);
-  }
-  
-  public function test_give2of0_return150()
-  {
-    $this->order->add(0);
-    $this->order->add(0);
-    $price = $this->order->getPrice();
-
-    $expected = 150;
-
-    $this->assertEquals($expected, $price);
+    //Act
+    $actual = $this->order->getPrice();
+    
+    //Assert
+    $this->assertEquals($expected, $actual);
   }
   
   
-
 }
