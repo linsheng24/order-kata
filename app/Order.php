@@ -16,6 +16,10 @@ class Order
     if ($this->count[0] == 1) {
       return 100;
     }
+
+    if ($this->count[1] == 1) {
+      return 160;
+    }
   }
   
 }
