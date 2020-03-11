@@ -19,9 +19,9 @@ class Order
     $reduce_number = floor($burger_number / 2);
 
     if ($reduce_number < $this->count[0]) {
-      $this->reduce = $reduce_number * 60;
+      $this->reduce = $reduce_number * $this->menu[0]["price"] / 2;
     } else {
-      $this->reduce = $this->count[0] * 60 + ($reduce_number - $this->count[0]) * 80;
+      $this->reduce = $this->count[0] * $this->menu[0]["price"] / 2 + ($reduce_number - $this->count[0]) * $this->menu[1]["price"] / 2;
     }
 
   }
